@@ -13,6 +13,8 @@ print("Input End Date: ", end = "")
 EndDate = input()
 print("Input No: ", end = "")
 ID = input()
+print("File Name: ", end = "")
+FileName = input()
 StartDate = StartDate.split('/')
 EndDate = EndDate.split('/')
 
@@ -44,9 +46,10 @@ for year in range(int(Sy), int(Ey) + 1):
         response = requests.get(url)
         date = response.json()
         print(month)
-        with open('output.csv', 'a') as csvfile:
+        with open(FileName + ".csv", 'a') as csvfile:
             writer = csv.writer(csvfile)
             for Data in date.get('data'):
                 writer.writerow(Data)
         time.sleep(5.5)
-print("Complete owo")
+
+print("Finish")
